@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="jdk shi j%28i%29ni">
+      <UniqueIdentifier>{c5dfdc88-3690-4e46-90ea-553e2f3e7775}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jni includes\classfile_constants.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+    <ClInclude Include="jni includes\jawt.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+    <ClInclude Include="jni includes\jawt_md.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+    <ClInclude Include="jni includes\jdwpTransport.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+    <ClInclude Include="jni includes\jni.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+    <ClInclude Include="jni includes\jni_md.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+    <ClInclude Include="jni includes\jvmti.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+    <ClInclude Include="jni includes\jvmticmlr.h">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="jni includes\jvm.lib">
+      <Filter>jdk shi j%28i%29ni</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
