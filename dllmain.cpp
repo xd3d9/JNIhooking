@@ -3,13 +3,6 @@
 #include <windows.h>
 #include <iostream>
 #include "jni includes/jni.h"
-class Java {
-public:
-    JavaVM* VM;
-    JNIEnv* Env;
-    JavaVMInitArgs Args;
-};
-
 typedef jint(*hJNI_GetCreatedJavaVMs)(JavaVM** vmBuf, jsize bufLen, jsize* nVMs);
 
 hJNI_GetCreatedJavaVMs oJNI_GetCreatedJavaVMs;
@@ -20,23 +13,37 @@ JavaVM* jvm;
 JNIEnv* jenv;
 
 void main() {
-    jsize JSize;
+    AllocConsole();
+    freopen("CONOUT$", "w", stdout);
+
     jvmHandle = GetModuleHandleA("jvm.dll");
 
     if (!jvmHandle) {
-        std::printf("ver vchitavt karoche jvms");
+        std::cout << "ver vchitavt karoche jvms" << std::endl;
         return;
     }
 
     func_JNI_GetCreatedJavaVMs = GetProcAddress(jvmHandle, "JNI_GetCreatedJavaVMs");
     oJNI_GetCreatedJavaVMs = (hJNI_GetCreatedJavaVMs)func_JNI_GetCreatedJavaVMs;
-    jint rf = oJNI_GetCreatedJavaVMs(&jvm, 1, NULL);
+    jint rf = oJNI_GetCreatedJavaVMs(&jvm, 1, NULL); // sanity chekebia dasamatebeli ^^
     jint rf1 = jvm->AttachCurrentThread((void**)&jenv, NULL);
 
     if (jenv != nullptr)
     {
-        //funcs
-    }
+        //MCPMappingViewer tesli toolia))) jerjeobit ase ikos da sheidzleba mere shevcvalo 1.8.9 ze vechalichebi
+        jclass MinecraftClass = jenv->FindClass("ave"); // net/minecraft/client Minecraft
+        std::cout << MinecraftClass << std::endl;
+
+        jmethodID GetMinecraftMethod = jenv->GetStaticMethodID(MinecraftClass, "A", "()Lave;"); // getMinecraft - ()Lnet/minecraft/client/Minecraft;
+        std::cout << GetMinecraftMethod << std::endl;
+
+        jobject MinecraftMethod = jenv->CallStaticObjectMethod(MinecraftClass, GetMinecraftMethod);
+        std::cout << MinecraftMethod << std::endl;
+
+        jfieldID playerid = jenv->GetFieldID(MinecraftClass, "h", "Lbew;"); // getPlayer, EntityPlayerSP
+        jobject player = jenv->GetObjectField(MinecraftMethod, playerid); // amjamad vqrashavt ak da mere gavarkvev axa mezareba
+        std::cout << player << std::endl;
+    } // calke thread ar awkenda amas
 
 
     if (jenv->ExceptionCheck())
