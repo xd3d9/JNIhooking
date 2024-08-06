@@ -12,6 +12,7 @@ FARPROC func_JNI_GetCreatedJavaVMs;
 JavaVM* jvm;
 JNIEnv* jenv;
 
+
 void main() {
     AllocConsole();
     freopen("CONOUT$", "w", stdout);
@@ -31,17 +32,17 @@ void main() {
     if (jenv != nullptr)
     {
         //MCPMappingViewer tesli toolia))) jerjeobit ase ikos da sheidzleba mere shevcvalo 1.8.9 ze vechalichebi
-        jclass MinecraftClass = jenv->FindClass("ave"); // net/minecraft/client Minecraft
+        jclass MinecraftClass = jenv->FindClass("bhz"); // net/minecraft/client Minecraft
         std::cout << MinecraftClass << std::endl;
 
-        jmethodID GetMinecraftMethod = jenv->GetStaticMethodID(MinecraftClass, "A", "()Lave;"); // getMinecraft - ()Lnet/minecraft/client/Minecraft;
+        jmethodID GetMinecraftMethod = jenv->GetStaticMethodID(MinecraftClass, "z", "()Lbhz;"); // getMinecraft - ()Lnet/minecraft/client/Minecraft;
         std::cout << GetMinecraftMethod << std::endl;
 
-        jobject MinecraftMethod = jenv->CallStaticObjectMethod(MinecraftClass, GetMinecraftMethod);
+        jobject MinecraftMethod = jenv->CallStaticObjectMethod(MinecraftClass, GetMinecraftMethod); // optifineze sxvanairad mushaobs amitomac sheidzleba minecraft method ver gamovighot akedan
         std::cout << MinecraftMethod << std::endl;
 
-        jfieldID playerid = jenv->GetFieldID(MinecraftClass, "h", "Lbew;"); // getPlayer, EntityPlayerSP
-        jobject player = jenv->GetObjectField(MinecraftMethod, playerid); // amjamad vqrashavt ak da mere gavarkvev axa mezareba
+        jfieldID playerid = jenv->GetFieldID(MinecraftClass, "h", "Lbub;"); // getPlayer, EntityPlayerSP
+        jobject player = jenv->GetObjectField(MinecraftMethod, playerid); // players vjvamt
         std::cout << player << std::endl;
     } // calke thread ar awkenda amas
 
